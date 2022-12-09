@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
+import { useCardsContext } from "../hooks/useCardsContext"
 import { useAuthContext } from '../hooks/useAuthContext'
 
 const API_URL=process.env.REACT_APP_API_URL;
 
-const WorkoutForm = () => {
-  const { dispatch } = useWorkoutsContext()
+const CardForm = () => {
+  const { dispatch } = useCardsContext()
   const { user } = useAuthContext()
 
   const [title, setTitle] = useState('')
@@ -23,7 +23,7 @@ const WorkoutForm = () => {
 
     const card = {title, date}
 
-    const response = await fetch(API_URL + '/workouts/', {
+    const response = await fetch(API_URL + '/cards/', {
       method: 'POST',
       body: JSON.stringify(card),
       headers: {
@@ -42,7 +42,7 @@ const WorkoutForm = () => {
       setDate(new Date())
       setError(null)
       setEmptyFields([])
-      dispatch({type: 'CREATE_WORKOUT', payload: json})
+      dispatch({type: 'CREATE_CARD', payload: json})
     }
   }
 
@@ -66,10 +66,10 @@ const WorkoutForm = () => {
         className={emptyFields.includes('date') ? 'error' : ''}
       />
 
-      <button>Add Workout</button>
+      <button>Add Card</button>
       {error && <div className="error">{error}</div>}
     </form>
   )
 }
 
-export default WorkoutForm
+export default CardForm
