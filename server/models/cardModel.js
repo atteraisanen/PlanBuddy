@@ -11,6 +11,10 @@ const cardSchema = new Schema({
     type: Date,
     required: false
   },
+  priority: {
+    type: Number,
+    required: false
+  },
   user_id: {
     type: String,
     required: false

@@ -1,5 +1,6 @@
 import { useCardsContext } from '../hooks/useCardsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useState } from 'react'
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
@@ -12,7 +13,7 @@ const CardDetails = ({ card }) => {
   const { dispatch } = useCardsContext()
   const { user } = useAuthContext()
 
-  const handleClick = async () => {
+  const handleDelete = async () => {
     if (!user) {
       return
     }
@@ -30,11 +31,36 @@ const CardDetails = ({ card }) => {
     }
   }
 
+  const handleMove = async () => {
+    if (!user) {
+      return
+    }
+
+    //Send a PUT request to update the priority
+    const response = await fetch(API_URL + '/cards/' + card._id, {
+      method: 'PUT',
+      body: JSON.stringify({priority: card.priority + 1}),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
+      }
+    })
+    const json = await response.json()
+
+    if (response.ok) {
+      dispatch({type: 'UPDATE_CARD', payload: json})
+      console.log(json.priority)
+      console.log(json.title)
+    }
+  }
+
   return (
-    <div className="workout-details">
+    <div className="card-details">
       <h4>{card.title}</h4>
       <p>Due {timeUntilDue}</p>
-      <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
+      <span id="span1" className="material-symbols-outlined" onClick={handleDelete}>DELETE</span>
+      <span id="span2" className="material-symbols-outlined" onClick={handleMove}>➜</span>
+      <p>Priority {card.priority}</p>
     </div>
   )
 }

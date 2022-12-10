@@ -27,7 +27,7 @@ const getCard = async (req, res) => {
 
 
 const createCard = async (req, res) => {
-  const {title, date} = req.body
+  const {title, date, priority} = req.body
 
   let emptyFields = []
 
@@ -41,7 +41,7 @@ const createCard = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
-    const card = await Card.create({title, date, user_id})
+    const card = await Card.create({title, date, priority, user_id})
     res.status(200).json(card)
   } catch (error) {
     res.status(400).json({error: error.message})
@@ -71,9 +71,8 @@ const updateCard = async (req, res) => {
     return res.status(404).json({error: 'No such card'})
   }
 
-  const card = await Card.findOneAndUpdate({_id: id}, {
-    ...req.body
-  })
+  const card = await Card.findOneAndUpdate({_id: id}, req.body, {new: true})
+  
 
   if (!card) {
     return res.status(400).json({error: 'No such card'})

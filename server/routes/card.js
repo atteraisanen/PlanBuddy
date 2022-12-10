@@ -4,7 +4,8 @@ const {
   getCards,
   getCard,
   deleteCard,
-  updateCard
+  updateCard,
+  updatePriority
 } = require('../controllers/cardController')
 const requireAuth = require('../middleware/requireAuth')
 
@@ -20,7 +21,7 @@ router.post('/', createCard)
 
 router.delete('/:id', deleteCard)
 
-router.patch('/:id', updateCard)
+router.put('/:id', updateCard)
 
 
 module.exports = router

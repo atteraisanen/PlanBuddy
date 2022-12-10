@@ -21,7 +21,7 @@ const CardForm = () => {
       return
     }
 
-    const card = {title, date}
+    const card = {title, date, priority: 0}
 
     const response = await fetch(API_URL + '/cards/', {
       method: 'POST',

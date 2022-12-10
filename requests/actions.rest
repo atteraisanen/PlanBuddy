@@ -2,8 +2,7 @@
 @contentType = application/json
 # @baseurl = https://backend-v2.onrender.com/api
 @baseurl = http://localhost:4000/api
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzdmMjBhZGI0ODEwN2YyZDk2Mjc0MDYiLCJpYXQiOjE2Njk5NTg5MjYsImV4cCI6MTY3MDIxODEyNn0.KkEAl_JpoIU2h7uMATT2Ec67QLRyTeLOPV7jRAr7q_8
-
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzkzMzk2NmRjODNjNTIxYTgzNWUyMjIiLCJpYXQiOjE2NzA1OTI4NzAsImV4cCI6MTY3MDg1MjA3MH0.D8KnzRpEsHNEutF0sl3aicR4ohJZfu6BCnmyEtug1tQ
 
 ### login
 POST  {{baseurl}}/user/login
@@ -38,7 +37,7 @@ Authorization: bearer {{token}}
 }
 
 ### GET Request
-GET {{baseurl}}/workouts
+GET {{baseurl}}/cards
 Content-Type: {{contentType}}
 Authorization: bearer {{token}}
 

@@ -35,6 +35,7 @@ const Home = () => {
         {cards && cards.map((card) => (
           <CardDetails key={card._id} card={card} />
         ))}
+        
       </div>
       <CardForm />
     </div>
