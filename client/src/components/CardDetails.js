@@ -55,12 +55,13 @@ const CardDetails = ({ card }) => {
   }
 
   return (
-    <div className="card-details">
+    <div className="list-items">
+      <li>
       <h4>{card.title}</h4>
       <p>Due {timeUntilDue}</p>
       <span id="span1" className="material-symbols-outlined" onClick={handleDelete}>DELETE</span>
       <span id="span2" className="material-symbols-outlined" onClick={handleMove}>➜</span>
-      <p>Priority {card.priority}</p>
+      </li>
     </div>
   )
 }

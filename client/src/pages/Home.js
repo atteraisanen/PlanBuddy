@@ -30,12 +30,27 @@ const Home = () => {
   }, [dispatch, user])
 
   return (
-    <div className="home">
-      <div className="workouts">
+    <div className="lists-container">
+      
+      <div className="list">
+        <div className='todo'>
+          <h3 className='list-title'>To do</h3>
         {cards && cards.map((card) => (
-          <CardDetails key={card._id} card={card} />
+          card.priority === 0 ? <CardDetails key={card.title} card={card} /> : null
         ))}
-        
+        </div>
+        <div className='doing'>
+        <h3 className='list-title'>Doing</h3>
+        {cards && cards.map((card) => (
+          card.priority === 1 ? <CardDetails key={card.title} card={card} /> : null
+        ))}
+        </div>
+        <div className='done'>
+        <h3 className='list-title'>Done</h3>
+        {cards && cards.map((card) => (
+          card.priority === 2 ? <CardDetails key={card.title} card={card} /> : null
+        ))}
+        </div>
       </div>
       <CardForm />
     </div>
