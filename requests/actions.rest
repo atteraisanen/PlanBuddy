@@ -57,8 +57,9 @@ Authorization: bearer {{token}}
 
 
 ### DELET Request   (Authorization error)
-DELETE {{baseurl}}/workouts/625158890e75b4ff2a109ab9999
+DELETE {{baseurl}}/cards/6394a0487f6a1f34f5ac83aa
 Content-Type: {{contentType}}
+Authorization: bearer {{token}}
 
 ### DELET Request
 DELETE {{baseurl}}/workouts/6386e10ad8e5f9250c33591a
