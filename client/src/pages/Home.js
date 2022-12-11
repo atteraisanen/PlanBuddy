@@ -30,6 +30,7 @@ const Home = () => {
   }, [dispatch, user])
 
   return (
+    <div className='pages'>
     <div className="lists-container">
       
       <div className="list">
@@ -53,6 +54,7 @@ const Home = () => {
         </div>
       </div>
       <CardForm />
+    </div>
     </div>
   )
 }

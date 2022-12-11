@@ -42,6 +42,7 @@ const CardDetails = ({ card }) => {
     }
 
     //Send a PUT request to update the priority
+    if(card.priority !== 2) {
     const response = await fetch(API_URL + '/cards/' + card._id, {
       method: 'PUT',
       body: JSON.stringify({priority: card.priority + 1}),
@@ -58,13 +59,14 @@ const CardDetails = ({ card }) => {
       console.log(json.title)
     }
   }
-
+  }
   const handleMoveLeft = async () => {
     if (!user) {
       return
     }
 
     //Send a PUT request to update the priority
+    if(card.priority !== 0) {
     const response = await fetch(API_URL + '/cards/' + card._id, {
       method: 'PUT',
       body: JSON.stringify({priority: card.priority - 1}),
@@ -81,7 +83,7 @@ const CardDetails = ({ card }) => {
       console.log(json.title)
     }
   }
-
+  }
   return (
     <div className="list-items">
       <li>

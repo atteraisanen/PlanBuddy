@@ -66,7 +66,7 @@ const CardForm = () => {
         className={emptyFields.includes('date') ? 'error' : ''}
       />
 
-      <button>Add Card</button>
+      <button className="btn ok">Add Card</button>
       {error && <div className="error">{error}</div>}
     </form>
   )

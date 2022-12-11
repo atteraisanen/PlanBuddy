@@ -14,7 +14,6 @@ function App() {
     <div className="App">
       <HashRouter>
         <Navbar />
-        <div className="pages">
           <Routes>
             <Route 
               path="/" 
@@ -29,7 +28,6 @@ function App() {
               element={!user ? <Signup /> : <Navigate to="/" />} 
             />
           </Routes>
-        </div>
       </HashRouter>
     </div>
   );

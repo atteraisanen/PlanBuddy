@@ -1,18 +1,26 @@
 /* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
+
 /* layout */
 :root {
-  --primary: #1aac83;
+  --primary: #3BBA9C;
+  --secondary: #2E3048;
+  --third: #43455C;
+  --fourth: #3C3F58;
+  --fifth: #707793;
+  --sixth: #D2D3D3;
+  --seventh: #555759;
   --error: #e7195a;
 }
 body {
-  background: #f1f1f1;
+  color: var(--primary);
+  background: #2E3048;
   margin: 0;
   font-family: "Poppins";
 }
 header {
-  background: #fff;
+  background: #43455C;
 }
 header .container {
   max-width: 1400px;
@@ -22,21 +30,43 @@ header .container {
   align-items: center;
   justify-content: space-between;
 }
+nav span {
+  padding: 0 10px 0 0;
+  color: var(--primary);
+}
+
 header a {
-  color: #333;
+  padding: 0 10px 0 0;
+  color: var(--primary);
   text-decoration: none;
 }
 .pages{
+  color: var(--primary);
+  background-color: var(--third);
   padding: 20px;
-  margin: 0 auto;
+  margin: 10px auto;
 }
+
+/* Login page*/
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  background-color: var(--fourth);
+  margin: 1.2em 0;
+  padding: 3em;
+}
+
 
 /* homepage */
 .home {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
-  
 }
 .card-details {
   background: #fff;
@@ -91,16 +121,33 @@ input {
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
+}  
+.btn {
+  border: 2px solid black;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 6px;
 }
-form button {
-  background: var(--primary);
-  border: 0;
-  color: #fff;
-  padding: 10px;
-  font-family: "Poppins";
-  border-radius: 4px;
+.ok {
+  background-color: var(--secondary);
+  border-color: #04AA6D;
+  color: green;
+}
+.ok:hover {
+  background-color: #04AA6D;
+  color: white;
   cursor: pointer;
 }
+
+.btnLogin {
+  background-color: var(--third);
+  border-color: #04AA6D;
+  color: green;
+}
+
+
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -118,7 +165,7 @@ input.error {
 .list {
     flex: 0 0 27rem;
     display: flex;
-    background-color: #e2e4e6;
+    background-color: var(--sixth);
     height: 80vh;
     overflow-y: auto;
     border-radius: 0.3rem;
@@ -132,20 +179,27 @@ input.error {
 }
 
 .list-title {
+  text-align: center;
   font-size: 1.4rem;
   font-weight: 700;
   color: #333;
   padding: 1rem;
+  border-bottom: 1px solid var(--secondary);
+  border-right: 1px solid var(--secondary);
+  
 }
 
 
 .list-items {
+  margin: auto;
+  padding: 0 0 0 1rem;
   max-width: 80%;
   min-width: 80%;
   word-break: break-all;
 }
 
 .list-items li {
+  text-align: center;
   list-style-type: none;
   min-width: auto;
   font-size: 1rem;
@@ -160,26 +214,11 @@ input.error {
 }
 
 /*Move the delete icon to the bottom right of the card. Keep the icon inside the card*/
-.list-items #left {
-  position: relative;
-  cursor: pointer;
-  padding: 6px;
-}
 
-.list-items #delete {
-  position: relative;
-  cursor: pointer;
-  padding: 6px;
-}
-
-.list-items #right {
-  position: relative;
-  cursor: pointer;
-  padding: 6px;
-}
 
 .list-items h4 {
   font-size: 1.5rem;
+  margin: 0;
 }
 
 
@@ -188,5 +227,5 @@ input.error {
 }
 
 .material-symbols-outlined {
-  position: center;
+  width: 33%;
 }
