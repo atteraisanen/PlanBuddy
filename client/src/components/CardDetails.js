@@ -108,7 +108,7 @@ const CardDetails = ({ card }) => {
     }
   }
 
-  const CardTitle = () => {
+  const cardTitle = () => {
     return editMode
     ?  
     <div>
@@ -132,7 +132,7 @@ const CardDetails = ({ card }) => {
   return (
     <div className="list-items">
       <li>
-      <CardTitle />
+      {cardTitle()}
       <p>Due {timeUntilDue}</p>
       <span id="left" className="material-symbols-outlined" onClick={handleMoveLeft}>ARROW_BACK</span>
       <span id="delete" className="material-symbols-outlined" onClick={handleDelete}>DELETE</span>
