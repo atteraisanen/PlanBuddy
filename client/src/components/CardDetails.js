@@ -18,6 +18,9 @@ const CardDetails = ({ card }) => {
   const { dispatch } = useCardsContext()
   const { user } = useAuthContext()
 
+  const [editMode, setEditMode] = useState(false)
+  const [title, setTitle] = useState(card.title)
+
   const handleDelete = async () => {
     if (!user) {
       return
@@ -64,12 +67,34 @@ const CardDetails = ({ card }) => {
     if (!user) {
       return
     }
+    if (card.priority !== 0) {
+      const response = await fetch(API_URL + '/cards/' + card._id, {
+        method: 'PUT',
+        body: JSON.stringify({ priority: card.priority - 1 }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${user.token}`
+        }
+      })
+      const json = await response.json()
 
-    //Send a PUT request to update the priority
-    if(card.priority !== 0) {
+      if (response.ok) {
+        dispatch({ type: 'UPDATE_CARD', payload: json })
+        console.log(json.priority)
+        console.log(json.title)
+      }
+    }
+  }
+
+  const handleEdit = async (e) => {
+    e.preventDefault()
+    if (!user) {
+      return
+    }
+
     const response = await fetch(API_URL + '/cards/' + card._id, {
       method: 'PUT',
-      body: JSON.stringify({priority: card.priority - 1}),
+      body: JSON.stringify({ title: title }),
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -77,21 +102,41 @@ const CardDetails = ({ card }) => {
     })
     const json = await response.json()
 
-    if (response.ok) {
+    if(response.ok) {
       dispatch({type: 'UPDATE_CARD', payload: json})
-      console.log(json.priority)
       console.log(json.title)
     }
   }
+
+  const CardTitle = () => {
+    return editMode
+    ?  
+    <div>
+      <form onSubmit={handleEdit}>
+        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+    :
+    <div>
+      <h4 onClick={changeEditMode}>{title}</h4>
+    </div>
   }
+
+  const changeEditMode = async () => {
+    console.log("Should change edit mode")
+    setEditMode(!editMode)
+  }
+
+
   return (
     <div className="list-items">
       <li>
-      <h4>{card.title}</h4>
+      <CardTitle />
       <p>Due {timeUntilDue}</p>
-      <span id="left" className="material-symbols-outlined" onClick={handleMoveLeft}>🡸</span>
+      <span id="left" className="material-symbols-outlined" onClick={handleMoveLeft}>ARROW_BACK</span>
       <span id="delete" className="material-symbols-outlined" onClick={handleDelete}>DELETE</span>
-      <span id="right" className="material-symbols-outlined" onClick={handleMoveRight}>🡺</span>
+      <span id="right" className="material-symbols-outlined" onClick={handleMoveRight}>ARROW_FORWARD</span>
       </li>
     </div>
   )

@@ -2,7 +2,7 @@
 @contentType = application/json
 # @baseurl = https://backend-v2.onrender.com/api
 @baseurl = http://localhost:4000/api
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzkzMzk2NmRjODNjNTIxYTgzNWUyMjIiLCJpYXQiOjE2NzA1OTI4NzAsImV4cCI6MTY3MDg1MjA3MH0.D8KnzRpEsHNEutF0sl3aicR4ohJZfu6BCnmyEtug1tQ
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2MzUxNzMwZGYyMjVkNDBhYTI0NTUiLCJpYXQiOjE2NzA4NDU3MDUsImV4cCI6MTY3MTEwNDkwNX0.jo8RSFsLtKXR69-8kneb8F-nUiufE0yv4w3IzDQeQHM
 
 ### login
 POST  {{baseurl}}/user/login
