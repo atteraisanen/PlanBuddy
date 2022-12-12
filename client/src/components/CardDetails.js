@@ -115,6 +115,7 @@ const CardDetails = ({ card }) => {
       <form onSubmit={handleEdit}>
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
         <button type="submit">Save</button>
+        <button type="reset" onClick={cancelAction}>Canel</button>
       </form>
     </div>
     :
@@ -123,6 +124,11 @@ const CardDetails = ({ card }) => {
     </div>
   }
 
+
+  const cancelAction = async () => {
+    setEditMode(!editMode)
+  }
+  
   const changeEditMode = async () => {
     console.log("Should change edit mode")
     setEditMode(!editMode)
