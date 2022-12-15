@@ -75,7 +75,7 @@ header a {
 
 .navbar-login {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .btnLogout {
@@ -152,7 +152,7 @@ input {
   border-radius: 6px;
 }
 .ok {
-  background-color: var(--secondary);
+  background-color: var(--third);
   border-color: #04AA6D;
   color: green;
 }
