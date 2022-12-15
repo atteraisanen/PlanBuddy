@@ -113,7 +113,7 @@ const CardDetails = ({ card }) => {
     ?  
     <div>
       <form onSubmit={handleEdit}>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+        <input type="text" class="title-input" value={title} onChange={(e) => setTitle(e.target.value)}/>
         <div className='title-edit-buttons'>
         <button type="submit">Save</button>
         <button type="reset" onClick={cancelAction}>Cancel</button>
