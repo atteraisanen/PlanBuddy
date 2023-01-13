@@ -1,4 +1,7 @@
-# Instructions
+# PlanBuddy
+PlanBuddy is a lightweight web-based project management tool that was done in a 2 week sprint as part of a Metropolia UAS course on Web Development.
+
+# Setup Instructions
 
 - Step 1:
 
@@ -15,10 +18,3 @@ cd client
 npm install
 npm start
 ```
-
-- Step 3: log in using browser
-email: mirja@mirja.fi
-password: 45RFgh##@$
-
-- Step 4: login using REST client i.e `./requests/actions.rest`
-> Note: you need to update the value of` @token` as explained in the lecture
