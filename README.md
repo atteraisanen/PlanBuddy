@@ -3,7 +3,10 @@ PlanBuddy is a lightweight web-based project management tool that was done in a 
 
 # Setup Instructions
 
-- Step 1:
+Create and configure .env files.
+
+Then:
+- Server
 
 ```bash
 cd server
@@ -11,10 +14,14 @@ npm install
 npm start
 ```
 
-- Step 2:
-
+- Client
 ```bash
 cd client
 npm install
 npm start
 ```
+
+Deployed version:
+https://plan-buddy.vercel.app/
+
+
