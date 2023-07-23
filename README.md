@@ -3,8 +3,17 @@ PlanBuddy is a lightweight web-based project management tool that was done in a 
 
 # Setup Instructions
 
-Create and configure .env files.
-
+Create two separate .env files, one inside the client folder and the other inside the server folder
+client .env
+```env
+REACT_APP_API_URL=URL_TO_API
+```
+server .env
+```env
+PORT=CHOSEN_PORT
+MONGO_URI=URI_TO_MONGO_ATLAS
+SECRET=YOUR_SECRET
+```
 Then:
 - Server
 
