@@ -3,7 +3,8 @@ PlanBuddy is a lightweight web-based project management tool that was done in a 
 
 # Setup Instructions
 
-Create two separate .env files, one inside the client folder and the other inside the server folder
+Create two separate .env files, one inside the client folder and the other inside the server folder.
+
 client .env
 ```env
 REACT_APP_API_URL=URL_TO_API
